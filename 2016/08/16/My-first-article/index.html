@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一次完整的HTTP请求所经历的7个步骤 | Jakoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTP通信机制是在一次完整的HTTP通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤：
+1. 建立TCP连接在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则，只有低层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次完整的HTTP请求所经历的7个步骤">
+<meta property="og:url" content="http://yoursite.com/2016/08/16/My-first-article/index.html">
+<meta property="og:site_name" content="Jakoo">
+<meta property="og:description" content="HTTP通信机制是在一次完整的HTTP通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤：
+1. 建立TCP连接在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则，只有低层">
+<meta property="og:updated_time" content="2016-08-17T09:47:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一次完整的HTTP请求所经历的7个步骤">
+<meta name="twitter:description" content="HTTP通信机制是在一次完整的HTTP通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤：
+1. 建立TCP连接在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则，只有低层">
+  
+    <link rel="alternate" href="/atom.xml" title="Jakoo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jakoo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">My Heart is a Ghost Town</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-My-first-article" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/16/My-first-article/" class="article-date">
+  <time datetime="2016-08-16T05:58:23.000Z" itemprop="datePublished">2016-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一次完整的HTTP请求所经历的7个步骤
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP通信机制是在一次完整的HTTP通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤：</p>
+<h5 id="1-建立TCP连接"><a href="#1-建立TCP连接" class="headerlink" title="1. 建立TCP连接"></a>1. 建立TCP连接</h5><p>在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则，只有低层协议建立之后才能进行更高层协议的连接，因此，首先要建立TCP连接，一般TCP连接的端口号是80。</p>
+<h5 id="2-Web浏览器向Web服务器发送请求命令"><a href="#2-Web浏览器向Web服务器发送请求命令" class="headerlink" title="2. Web浏览器向Web服务器发送请求命令"></a>2. Web浏览器向Web服务器发送请求命令</h5><p>一旦建立了TCP连接，Web浏览器就会向Web服务器发送请求命令。例如：GET/sample/hello.jsp HTTP/1.1。</p>
+<h5 id="3-Web浏览器发送请求头信息"><a href="#3-Web浏览器发送请求头信息" class="headerlink" title="3. Web浏览器发送请求头信息"></a>3. Web浏览器发送请求头信息</h5><p>浏览器发送其请求命令之后，还要以头信息的形式向Web服务器发送一些别的信息，之后浏览器发送了一空白行来通知服务器，它已经结束了该头信息的发送。</p>
+<h5 id="4-Web服务器应答"><a href="#4-Web服务器应答" class="headerlink" title="4. Web服务器应答"></a>4. Web服务器应答</h5><p>客户机向服务器发出请求后，服务器会客户机回送应答， HTTP/1.1 200 OK ，应答的第一部分是协议的版本号和应答状态码。</p>
+<h5 id="5-Web服务器发送应答头信息"><a href="#5-Web服务器发送应答头信息" class="headerlink" title="5. Web服务器发送应答头信息"></a>5. Web服务器发送应答头信息</h5><p>正如客户端会随同请求发送关于自身的信息一样，服务器也会随同应答向用户发送关于它自己的数据及被请求的文档。</p>
+<h5 id="6-Web服务器向浏览器发送数据"><a href="#6-Web服务器向浏览器发送数据" class="headerlink" title="6. Web服务器向浏览器发送数据"></a>6. Web服务器向浏览器发送数据</h5><p>Web服务器向浏览器发送头信息后，它会发送一个空白行来表示头信息的发送到此为结束，接着，它就以Content-Type应答头信息所描述的格式发送用户所请求的实际数据。</p>
+<h5 id="7-Web服务器关闭TCP连接"><a href="#7-Web服务器关闭TCP连接" class="headerlink" title="7. Web服务器关闭TCP连接"></a>7. Web服务器关闭TCP连接</h5><p>一般情况下，一旦Web服务器向浏览器发送了请求数据，它就要关闭TCP连接，然后如果浏览器或者服务器在其头信息加入了这行代码：Connection:keep-alive</p>
+<p>TCP连接在发送后将仍然保持打开状态，于是，浏览器可以继续通过相同的连接发送请求。保持连接节省了为每个请求建立新连接所需的时间，还节约了网络带宽。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/16/My-first-article/" data-id="cisik9met0000ccwuy955ejd9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/18/Windows下配置wnmp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Windows下配置wnmp
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread" data-thread-key=”_posts/My-first-article.md”></div>
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"passbytaken"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'https://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+  <!-- Duoshuo Comment END -->
+</section>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/19/Update-log/">Update log</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Windows下配置wnmp/">Windows下配置wnmp</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/16/My-first-article/">一次完整的HTTP请求所经历的7个步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Jakoo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      
+<script src="https://s95.cnzz.com/z_stat.php?id=1253551672&web_id=1253551672" language="JavaScript"></script>
+
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

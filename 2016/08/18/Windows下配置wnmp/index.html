@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Windows下配置wnmp | Jakoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.下载所需的软件，分别是nginx,php,mysql,安装所需的软件
+2.在C盘根目录下新建wnmp文件夹，分别建立文件夹mysql,nginx,php.解压相对应的文件到指定目录下
+C:\wnmp\mysql
+C:\wnmp\nginx
+C:\wnmp\php
+3.安装nginx
+1）打开C:\nginx目录，运行该文件夹下的nginx.exe
+2）测试是否启动nginx。打开浏览器访问ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下配置wnmp">
+<meta property="og:url" content="http://yoursite.com/2016/08/18/Windows下配置wnmp/index.html">
+<meta property="og:site_name" content="Jakoo">
+<meta property="og:description" content="1.下载所需的软件，分别是nginx,php,mysql,安装所需的软件
+2.在C盘根目录下新建wnmp文件夹，分别建立文件夹mysql,nginx,php.解压相对应的文件到指定目录下
+C:\wnmp\mysql
+C:\wnmp\nginx
+C:\wnmp\php
+3.安装nginx
+1）打开C:\nginx目录，运行该文件夹下的nginx.exe
+2）测试是否启动nginx。打开浏览器访问ht">
+<meta property="og:updated_time" content="2016-08-19T06:31:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows下配置wnmp">
+<meta name="twitter:description" content="1.下载所需的软件，分别是nginx,php,mysql,安装所需的软件
+2.在C盘根目录下新建wnmp文件夹，分别建立文件夹mysql,nginx,php.解压相对应的文件到指定目录下
+C:\wnmp\mysql
+C:\wnmp\nginx
+C:\wnmp\php
+3.安装nginx
+1）打开C:\nginx目录，运行该文件夹下的nginx.exe
+2）测试是否启动nginx。打开浏览器访问ht">
+  
+    <link rel="alternate" href="/atom.xml" title="Jakoo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jakoo</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">My Heart is a Ghost Town</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Windows下配置wnmp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/Windows下配置wnmp/" class="article-date">
+  <time datetime="2016-08-18T09:24:39.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Windows下配置wnmp
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.下载所需的软件，分别是nginx,php,mysql,安装所需的软件</p>
+<p>2.在C盘根目录下新建wnmp文件夹，分别建立文件夹mysql,nginx,php.解压相对应的文件到指定目录下</p>
+<p>C:\wnmp\mysql</p>
+<p>C:\wnmp\nginx</p>
+<p>C:\wnmp\php</p>
+<p>3.安装nginx</p>
+<p>1）打开C:\nginx目录，运行该文件夹下的nginx.exe</p>
+<p>2）测试是否启动nginx。打开浏览器访问<a href="http://localhost" target="_blank" rel="external">http://localhost</a> 或 <a href="http://127.0.0.1，看看是否出现“Welcome" target="_blank" rel="external">http://127.0.0.1，看看是否出现“Welcome</a> to nginx!”，出现的证明已经启动成功了。没有启动的话，看看80端口有占用没。（端口可以在nginx.conf中更改）</p>
+<p>注意：该网站的默认目录在“C:\wnmp\nginx\html”下</p>
+<p>第三部分：安装php（这里主要讲nginx配置启动php，以cgi运行php）</p>
+<p>nginx配置文件是conf文件夹里的nginx.conf</p>
+<p>1*.修改大概第43~45行之间的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">root C:/wnmp/nginx/html;</div><div class="line">index index.html index.htm index.php;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2*.支持php的设置</p>
+<p>修改大概在第63-71行的</p>
+<p>先将前面的“#”去掉，同样将root  html;改为root  C:/wnmp/nginx-1.5.8/html;。再把“/scripts”改为“$document_root”，这里的“$document_root”就是指前面“root”所指的站点路径，这是改完后的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line"></div><div class="line">location ~ \.php$ &#123;</div><div class="line">root C:/wnmp/nginx/html;</div><div class="line">fastcgi_pass 127.0.0.1:9000;</div><div class="line">fastcgi_index index.php;</div><div class="line">fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">include fastcgi_params;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.C:\wnmp\php\ext下修改php.ini-development文件，将文件名修改为php.ini，打开php配置文件php.ini，保存即可。</p>
+<p>搜索“extension_dir”，找到： e;xtension_dir = “ext” 先去前面的分号再改为 extension_dir = “C:\wnmp\php\ext”</p>
+<p>搜索“date.timezone”，找到：;date.timezone = 先去前面的分号再改为 date.timezone = Asia/Shanghai</p>
+<p>搜索“enable_dl”，找到：enable_dl = Off 改为 enable_dl = On</p>
+<p>搜索“cgi.force_redirect” ;cgi.force_redirect = 1 先去前面的分号再改为 cgi.force_redirect = 0</p>
+<p>搜索“fastcgi.impersonate”，找到： ;fastcgi.impersonate = 1 去掉前面的分号</p>
+<p>搜索“cgi.rfc2616_headers”，找到：;cgi.rfc2616_headers = 0 先去前面的分号再改为 cgi.rfc2616_headers = 1</p>
+<p>搜索“php_mysql”，找到：”extension=php_mysql.dll和extension=php_mysqli.dll  去掉前面的“;”extension=php_mysql.dll和extension=php_mysqli.dll   （支持MYSQL数据库）</p>
+<p>其他的配置请按照自己的需求更改。</p>
+<p>第三部分试运行以及编辑运行配置文件</p>
+<p>C:\wnmp\php-5.5.7-nts-Win32-VC11-x86&gt;php-cgi.exe -b 127.0.0.1:9000-c C:\wnmp\php-5.5.7-nts-Win32-VC11-x86\php.ini</p>
+<p>重新运行nginx.exe。</p>
+<p>C:\wnmp\nginx-1.5.8\html下新建一个phpinfo.php，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php phpinfo(); ?&gt;</div></pre></td></tr></table></figure>
+<p>访问<a href="http://localhost/phpinfo.php" target="_blank" rel="external">http://localhost/phpinfo.php</a></p>
+<p>或者<a href="http://127.0.0.1/phpinfo.php" target="_blank" rel="external">http://127.0.0.1/phpinfo.php</a></p>
+<p>出现如下的信息就说明php已经成功安装:</p>
+<p>第三部分试运行以及编辑运行配置文件</p>
+<p>C:\wnmp\php&gt;php-cgi.exe -b 127.0.0.1:9000-c C:\wnmp\php\php.ini<br>重新运行nginx.exe。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/18/Windows下配置wnmp/" data-id="cisik9mf20002ccwuh2ymbib5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/19/Update-log/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Update log
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/16/My-first-article/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一次完整的HTTP请求所经历的7个步骤</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread" data-thread-key=”_posts/Windows下配置wnmp.md”></div>
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"passbytaken"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'https://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+  <!-- Duoshuo Comment END -->
+</section>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/19/Update-log/">Update log</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Windows下配置wnmp/">Windows下配置wnmp</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/16/My-first-article/">一次完整的HTTP请求所经历的7个步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Jakoo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      
+<script src="https://s95.cnzz.com/z_stat.php?id=1253551672&web_id=1253551672" language="JavaScript"></script>
+
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

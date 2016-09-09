@@ -3,21 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Jakoo</title>
+  <title>Java中@Override的作用 | Jakoo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="[转]Java中@Override的作用@Override是伪代码,表示重写(当然不写也可以)，不过写上有如下好处: 
+
+1、可以当注释用,方便阅读；
+2、编译器可以给你验证@Override下面的方法名是否是你父类中所有的，如果没有则报错。例如，你如果没写@Override，而你下面的方法名又写错了，这时你的编译器是可以编译通过的，因为编译器以为这个方法是你的子类中自己增加的方法。
+
+举例：在重">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/08/16/hello-world/index.html">
+<meta property="og:title" content="Java中@Override的作用">
+<meta property="og:url" content="http://yoursite.com/2016/09/09/Java中-Override的作用/index.html">
 <meta property="og:site_name" content="Jakoo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-08-16T05:55:02.000Z">
+<meta property="og:description" content="[转]Java中@Override的作用@Override是伪代码,表示重写(当然不写也可以)，不过写上有如下好处: 
+
+1、可以当注释用,方便阅读；
+2、编译器可以给你验证@Override下面的方法名是否是你父类中所有的，如果没有则报错。例如，你如果没写@Override，而你下面的方法名又写错了，这时你的编译器是可以编译通过的，因为编译器以为这个方法是你的子类中自己增加的方法。
+
+举例：在重">
+<meta property="og:updated_time" content="2016-09-09T08:13:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Java中@Override的作用">
+<meta name="twitter:description" content="[转]Java中@Override的作用@Override是伪代码,表示重写(当然不写也可以)，不过写上有如下好处: 
+
+1、可以当注释用,方便阅读；
+2、编译器可以给你验证@Override下面的方法名是否是你父类中所有的，如果没有则报错。例如，你如果没写@Override，而你下面的方法名又写错了，这时你的编译器是可以编译通过的，因为编译器以为这个方法是你的子类中自己增加的方法。
+
+举例：在重">
   
     <link rel="alternate" href="/atom.xml" title="Jakoo" type="application/atom+xml">
   
@@ -72,10 +84,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java中-Override的作用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/08/16/hello-world/" class="article-date">
-  <time datetime="2016-08-16T05:55:02.000Z" itemprop="datePublished">2016-08-16</time>
+    <a href="/2016/09/09/Java中-Override的作用/" class="article-date">
+  <time datetime="2016-09-09T08:08:46.000Z" itemprop="datePublished">2016-09-09</time>
 </a>
     
   </div>
@@ -86,7 +98,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Java中@Override的作用
     </h1>
   
 
@@ -94,20 +106,19 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h6 id="转-Java中-Override的作用"><a href="#转-Java中-Override的作用" class="headerlink" title="[转]Java中@Override的作用"></a>[转]Java中@Override的作用</h6><p>@Override是伪代码,表示重写(当然不写也可以)，不过写上有如下好处: </p>
+<ul>
+<li>1、可以当注释用,方便阅读；</li>
+<li>2、编译器可以给你验证@Override下面的方法名是否是你父类中所有的，如果没有则报错。例如，你如果没写@Override，而你下面的方法名又写错了，这时你的编译器是可以编译通过的，因为编译器以为这个方法是你的子类中自己增加的方法。</li>
+</ul>
+<p>举例：在重写父类的onCreate时，在方法前面加上@Override 系统可以帮你检查方法的正确性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void onCreate(Bundle savedInstanceState)</div><div class="line">&#123;…….&#125;</div></pre></td></tr></table></figure></p>
+<p>这种写法是正确的，如果你写成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void oncreate(Bundle savedInstanceState)</div><div class="line">&#123;…….&#125;</div></pre></td></tr></table></figure></p>
+<p>编译器会报如下错误：The method oncreate(Bundle) of type HelloWorld must override or implement a supertype method，以确保你正确重写onCreate方法（因为oncreate应该为onCreate）。而如果你不加@Override，则编译器将不会检测出错误，而是会认为你为子类定义了一个新方法：oncreate</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/16/hello-world/" data-id="cisvhjj2o0004c7wug5qu0jhw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/09/Java中-Override的作用/" data-id="cisvhjj1y0000c7wuizhvaps5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -116,15 +127,11 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2016/08/16/My-first-article/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          一次完整的HTTP请求所经历的7个步骤
-        
-      </div>
-    </a>
   
+    <a href="/2016/08/19/Update-log/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Update log</div>
+    </a>
   
 </nav>
 
@@ -134,7 +141,7 @@ Quick">
 
 <section id="comments">
   <!-- Duoshuo Comment BEGIN -->
-  <div class="ds-thread" data-thread-key=”_posts/hello-world.md”></div>
+  <div class="ds-thread" data-thread-key=”_posts/Java中-Override的作用.md”></div>
   <script type="text/javascript">
     var duoshuoQuery = {short_name:"passbytaken"};
     (function() {

@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Jakoo</title>
+  <title>MySQL查询异常：找不到表名 | Jakoo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="MySQL查询异常：找不到表名找不到数据库表名，但是数据库又实际存在表，报错如下，确定导致报错的原因，开始排查问题
+以前的小东西，启起来是发现数据没有，以为是前端的问题，排查后发现，前端代码没有问题，然后开启Debug模式，发现数据没有正常从数据库拿到，报错如下：
+HTTP Status 500 - Request processing failed; nested exception is or">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/08/16/hello-world/index.html">
+<meta property="og:title" content="MySQL查询异常：找不到表名">
+<meta property="og:url" content="http://yoursite.com/2017/02/23/一次二逼的错误/index.html">
 <meta property="og:site_name" content="Jakoo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-08-16T05:55:02.000Z">
+<meta property="og:description" content="MySQL查询异常：找不到表名找不到数据库表名，但是数据库又实际存在表，报错如下，确定导致报错的原因，开始排查问题
+以前的小东西，启起来是发现数据没有，以为是前端的问题，排查后发现，前端代码没有问题，然后开启Debug模式，发现数据没有正常从数据库拿到，报错如下：
+HTTP Status 500 - Request processing failed; nested exception is or">
+<meta property="og:updated_time" content="2017-02-23T07:23:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="MySQL查询异常：找不到表名">
+<meta name="twitter:description" content="MySQL查询异常：找不到表名找不到数据库表名，但是数据库又实际存在表，报错如下，确定导致报错的原因，开始排查问题
+以前的小东西，启起来是发现数据没有，以为是前端的问题，排查后发现，前端代码没有问题，然后开启Debug模式，发现数据没有正常从数据库拿到，报错如下：
+HTTP Status 500 - Request processing failed; nested exception is or">
   
     <link rel="alternate" href="/atom.xml" title="Jakoo" type="application/atom+xml">
   
@@ -72,10 +75,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-一次二逼的错误" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/08/16/hello-world/" class="article-date">
-  <time datetime="2016-08-16T05:55:02.000Z" itemprop="datePublished">2016-08-16</time>
+    <a href="/2017/02/23/一次二逼的错误/" class="article-date">
+  <time datetime="2017-02-23T06:55:08.000Z" itemprop="datePublished">2017-02-23</time>
 </a>
     
   </div>
@@ -86,7 +89,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      MySQL查询异常：找不到表名
     </h1>
   
 
@@ -94,37 +97,31 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h6 id="MySQL查询异常：找不到表名"><a href="#MySQL查询异常：找不到表名" class="headerlink" title="MySQL查询异常：找不到表名"></a>MySQL查询异常：找不到表名</h6><p><em>找不到数据库表名，但是数据库又实际存在表，报错如下，确定导致报错的原因，开始排查问题</em></p>
+<p>以前的小东西，启起来是发现数据没有，以为是前端的问题，排查后发现，前端代码没有问题，然后开启Debug模式，发现数据没有正常从数据库拿到，报错如下：</p>
+<p>HTTP Status 500 - Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">exception</div><div class="line"></div><div class="line">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException:</div><div class="line">Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;ele_employeeInfo.ele_shikigami&apos; doesn&apos;t exist</div><div class="line">The error may exist in file [/Library/tomcat/webapps/ROOT/WEB-INF/classes/mappers/EleShikigamiMapper.xml]</div></pre></td></tr></table></figure></p>
+<p>bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table ‘ele_employeeInfo.ele_shikigami’ doesn’t exist<br>    org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:979)<br>    org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:858)<br>    javax.servlet.http.HttpServlet.service(HttpServlet.java:622)<br>    org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:843)<br>    javax.servlet.http.HttpServlet.service(HttpServlet.java:729)<br>    org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)</p>
+<p>  错误一目了然，是找不到表。 原因：之前连接的数据库是本地的，现在连接的是服务器，Linux系统的数据库。本地连接貌似没有对查询语句的表名大小写有要求，远程到Linux就要区分了。数据库连的服务器的，本地当然找不到了😂 解决：把查询语句的表名大小写改成与数据库匹配的即可。😂</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/16/hello-world/" data-id="cizi24wyw00052rwu9gvdeyad" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/23/一次二逼的错误/" data-id="cizi24wyu00042rwu8zg8vlb0" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2016/08/16/My-first-article/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          一次完整的HTTP请求所经历的7个步骤
-        
-      </div>
-    </a>
   
+    <a href="/2017/02/14/框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于RPC框架</div>
+    </a>
   
 </nav>
 
@@ -134,7 +131,7 @@ Quick">
 
 <section id="comments">
   <!-- Duoshuo Comment BEGIN -->
-  <div class="ds-thread" data-thread-key=”_posts/hello-world.md”></div>
+  <div class="ds-thread" data-thread-key=”_posts/一次二逼的错误.md”></div>
   <script type="text/javascript">
     var duoshuoQuery = {short_name:"passbytaken"};
     (function() {

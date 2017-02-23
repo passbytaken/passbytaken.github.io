@@ -67,6 +67,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-一次二逼的错误" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/23/一次二逼的错误/" class="article-date">
+  <time datetime="2017-02-23T06:55:08.000Z" itemprop="datePublished">2017-02-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/23/一次二逼的错误/">MySQL查询异常：找不到表名</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="MySQL查询异常：找不到表名"><a href="#MySQL查询异常：找不到表名" class="headerlink" title="MySQL查询异常：找不到表名"></a>MySQL查询异常：找不到表名</h6><p><em>找不到数据库表名，但是数据库又实际存在表，报错如下，确定导致报错的原因，开始排查问题</em></p>
+<p>以前的小东西，启起来是发现数据没有，以为是前端的问题，排查后发现，前端代码没有问题，然后开启Debug模式，发现数据没有正常从数据库拿到，报错如下：</p>
+<p>HTTP Status 500 - Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">exception</div><div class="line"></div><div class="line">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException:</div><div class="line">Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;ele_employeeInfo.ele_shikigami&apos; doesn&apos;t exist</div><div class="line">The error may exist in file [/Library/tomcat/webapps/ROOT/WEB-INF/classes/mappers/EleShikigamiMapper.xml]</div></pre></td></tr></table></figure></p>
+<p>bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table ‘ele_employeeInfo.ele_shikigami’ doesn’t exist<br>    org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:979)<br>    org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:858)<br>    javax.servlet.http.HttpServlet.service(HttpServlet.java:622)<br>    org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:843)<br>    javax.servlet.http.HttpServlet.service(HttpServlet.java:729)<br>    org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)</p>
+<p>  错误一目了然，是找不到表。 原因：之前连接的数据库是本地的，现在连接的是服务器，Linux系统的数据库。本地连接貌似没有对查询语句的表名大小写有要求，远程到Linux就要区分了。数据库连的服务器的，本地当然找不到了😂 解决：把查询语句的表名大小写改成与数据库匹配的即可。😂</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/23/一次二逼的错误/" data-id="cizi24wyu00042rwu8zg8vlb0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
     <article id="rpc-框架" class="article article-type-rpc" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/02/14/框架/" class="article-date">
@@ -113,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/14/框架/" data-id="ciz59gt2o00058awuserpyu7v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/02/14/框架/" data-id="cizi24wz600072rwuj8lriwro" class="article-share-link">Share</a>
       
       
     </footer>
@@ -160,55 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/09/Java中-Override的作用/" data-id="ciz59gt2900008awu95kqtenh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-  
-    <article id="post-Update-log" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/19/Update-log/" class="article-date">
-  <time datetime="2016-08-19T08:43:54.000Z" itemprop="datePublished">2016-08-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/19/Update-log/">Update log</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="update-log"><a href="#update-log" class="headerlink" title="update log:"></a>update log:</h6><ul>
-<li>2016.08.31 add cnzz analytics and fix a tiny display issue.</li>
-<li>2016.08.19 Use <em>duoshuo</em> to add comments model.</li>
-<li>2016.08.18 Use hexo build static blog on github page.</li>
-<li>2016.08.17 Lazy and 保卫萝卜3…</li>
-<li>2016.08.16 Lazy and nothing…</li>
-<li>2016.08.15 Suddenly find github page can use <em>hexo</em> to build my own static blog. </li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/mw690/82ae60f5gw1f63tjptngwj20hs0b4js1.jpg" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/19/Update-log/" data-id="ciz59gt2f00018awuupi3r9px" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/09/Java中-Override的作用/" data-id="cizi24wyo00012rwuml33r0mt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -224,7 +222,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">next &raquo;</a>
   </nav>
 </section>
         
@@ -234,9 +232,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -255,6 +267,10 @@
       <ul>
         
           <li>
+            <a href="/2017/02/23/一次二逼的错误/">MySQL查询异常：找不到表名</a>
+          </li>
+        
+          <li>
             <a href="/2017/02/14/框架/">关于RPC框架</a>
           </li>
         
@@ -268,10 +284,6 @@
         
           <li>
             <a href="/2016/08/18/Windows下配置wnmp/">Windows下配置wnmp</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/16/My-first-article/">一次完整的HTTP请求所经历的7个步骤</a>
           </li>
         
       </ul>

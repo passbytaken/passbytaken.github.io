@@ -274,6 +274,137 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/14/框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jakoo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jakoo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/14/框架/" itemprop="url">关于RPC框架</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T16:05:14+08:00">
+                2017-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="转-通俗的语言解释一下什么是-RPC-框架？"><a href="#转-通俗的语言解释一下什么是-RPC-框架？" class="headerlink" title="[转]通俗的语言解释一下什么是 RPC 框架？"></a>[转]通俗的语言解释一下什么是 RPC 框架？</h6><p>首先了解什么叫RPC，为什么要RPC，RPC是指远程过程调用，也就是说两台服务器A，B，一个应用部署在A服务器上，想要调用B服务器上应用提供的函数/方法，由于不在一个内存空间，不能直接调用，需要通过网络来表达调用的语义和传达调用的数据。</p>
+<p>比如说，一个方法可能是这样定义的：<br>Employee getEmployeeByName(String fullName)<br>那么：</p>
+<ul>
+<li>首先，要解决通讯的问题，主要是通过在客户端和服务器之间建立TCP连接，远程过程调用的所有交换的数据都在这个连接里传输。连接可以是按需连接，调用结束后就断掉，也可以是长连接，多个远程过程调用共享同一个连接。</li>
+<li>第二，要解决寻址的问题，也就是说，A服务器上的应用怎么告诉底层的RPC框架，如何连接到B服务器（如主机或IP地址）以及特定的端口，方法的名称名称是什么，这样才能完成调用。比如基于Web服务协议栈的RPC，就要提供一个endpoint URI，或者是从UDDI服务上查找。如果是RMI调用的话，还需要一个RMI Registry来注册服务的地址。</li>
+<li>第三，当A服务器上的应用发起远程过程调用时，方法的参数需要通过底层的网络协议如TCP传递到B服务器，由于网络协议是基于二进制的，内存中的参数的值要序列化成二进制的形式，也就是序列化（Serialize）或编组（marshal），通过寻址和传输将序列化的二进制发送给B服务器。</li>
+<li>第四，B服务器收到请求后，需要对参数进行反序列化（序列化的逆操作），恢复为内存中的表达方式，然后找到对应的方法（寻址的一部分）进行本地调用，然后得到返回值。</li>
+<li>第五，返回值还要发送回服务器A上的应用，也要经过序列化的方式发送，服务器A接到后，再反序列化，恢复为内存中的表达方式，交给A服务器上的应用</li>
+</ul>
+<p><img src="https://pic4.zhimg.com/45366c44f775abfd0ac3b43bccc1abc3_b.jpg" alt=""></p>
+<p>为什么RPC呢？就是无法在一个进程内，甚至一个计算机内通过本地调用的方式完成的需求，比如比如不同的系统间的通讯，甚至不同的组织间的通讯。由于计算能力需要横向扩展，需要在多台机器组成的集群上部署应用，</p>
+<p>RPC的协议有很多，比如最早的CORBA，Java RMI，Web Service的RPC风格，Hessian，Thrift，甚至Rest API。</p>
+<h5 id="关于Netty"><a href="#关于Netty" class="headerlink" title="关于Netty"></a>关于Netty</h5><p>而Netty框架不局限于RPC，更多的是作为一种网络协议的实现框架，比如HTTP，由于RPC需要高效的网络通信，就可能选择以Netty作为基础。除了网络通信，RPC还需要有比较高效的序列化框架，以及一种寻址方式。如果是带会话（状态）的RPC调用，还需要有会话和状态保持的功能。</p>
+<p>大体上来说，Netty就是提供一种事件驱动的，责任链式（也可以说是流水线）的网络协议实现方式。网络协议包含很多层次，很多部分组成，如传输层协议，编码解码，压缩解压，身份认证，加密解密，请求的处理逻辑，怎么能够更好的复用，扩展，业界通用的方法就是责任链，</p>
+<p>一个请求应答网络交互通常包含两条链，一条链（Upstream）是从传输层，经过一系列步骤，如身份认证，解密，日志，流控，最后到达业务层，一条链（DownStream）是业务层返回后，又经过一系列步骤，如加密等，又回到传输层。</p>
+<p><img src="https://pic1.zhimg.com/6661f6c06aba782ff5ff61b70f842b64_r.jpg" alt=""></p>
+<p>这样每一层都有一个处理接口，都可以进行不同的操作，比如身份认证，加解密，日志，流控，将不同的处理实现像拼积木那样插接起来就可以实现一个网络协议了（快速开发）。每一层都有自己的实现，上层不需要关注面向网络的操作（可维护）。Netty已经提供了很多实现。</p>
+<p><img src="https://pic4.zhimg.com/7decee9dca245621988ebb0fea7d2be3_r.jpg" alt=""></p>
+<p>当然Netty还有许多好处，比如对非阻塞IO（NIO）的支持，比如在链上传递时最大程度的减少buffer的copy（高性能）。</p>
+<p><code>著作权归作者用心阁所有</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/09/Java中-Override的作用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -526,152 +657,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/18/Windows下配置wnmp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jakoo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jakoo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/18/Windows下配置wnmp/" itemprop="url">Windows下配置wnmp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-18T17:24:39+08:00">
-                2016-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.下载所需的软件，分别是nginx,php,mysql,安装所需的软件</p>
-<p>2.在C盘根目录下新建wnmp文件夹，分别建立文件夹mysql,nginx,php.解压相对应的文件到指定目录下</p>
-<p>C:\wnmp\mysql</p>
-<p>C:\wnmp\nginx</p>
-<p>C:\wnmp\php</p>
-<p>3.安装nginx</p>
-<p>1）打开C:\nginx目录，运行该文件夹下的nginx.exe</p>
-<p>2）测试是否启动nginx。打开浏览器访问<a href="http://localhost" target="_blank" rel="external">http://localhost</a> 或 <a href="http://127.0.0.1，看看是否出现“Welcome" target="_blank" rel="external">http://127.0.0.1，看看是否出现“Welcome</a> to nginx!”，出现的证明已经启动成功了。没有启动的话，看看80端口有占用没。（端口可以在nginx.conf中更改）</p>
-<p>注意：该网站的默认目录在“C:\wnmp\nginx\html”下</p>
-<p>第三部分：安装php（这里主要讲nginx配置启动php，以cgi运行php）</p>
-<p>nginx配置文件是conf文件夹里的nginx.conf</p>
-<p>1*.修改大概第43~45行之间的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">root C:/wnmp/nginx/html;</div><div class="line">index index.html index.htm index.php;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2*.支持php的设置</p>
-<p>修改大概在第63-71行的</p>
-<p>先将前面的“#”去掉，同样将root  html;改为root  C:/wnmp/nginx-1.5.8/html;。再把“/scripts”改为“$document_root”，这里的“$document_root”就是指前面“root”所指的站点路径，这是改完后的：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line"></div><div class="line">location ~ \.php$ &#123;</div><div class="line">root C:/wnmp/nginx/html;</div><div class="line">fastcgi_pass 127.0.0.1:9000;</div><div class="line">fastcgi_index index.php;</div><div class="line">fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">include fastcgi_params;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3.C:\wnmp\php\ext下修改php.ini-development文件，将文件名修改为php.ini，打开php配置文件php.ini，保存即可。</p>
-<p>搜索“extension_dir”，找到： e;xtension_dir = “ext” 先去前面的分号再改为 extension_dir = “C:\wnmp\php\ext”</p>
-<p>搜索“date.timezone”，找到：;date.timezone = 先去前面的分号再改为 date.timezone = Asia/Shanghai</p>
-<p>搜索“enable_dl”，找到：enable_dl = Off 改为 enable_dl = On</p>
-<p>搜索“cgi.force_redirect” ;cgi.force_redirect = 1 先去前面的分号再改为 cgi.force_redirect = 0</p>
-<p>搜索“fastcgi.impersonate”，找到： ;fastcgi.impersonate = 1 去掉前面的分号</p>
-<p>搜索“cgi.rfc2616_headers”，找到：;cgi.rfc2616_headers = 0 先去前面的分号再改为 cgi.rfc2616_headers = 1</p>
-<p>搜索“php_mysql”，找到：”extension=php_mysql.dll和extension=php_mysqli.dll  去掉前面的“;”extension=php_mysql.dll和extension=php_mysqli.dll   （支持MYSQL数据库）</p>
-<p>其他的配置请按照自己的需求更改。</p>
-<p>第三部分试运行以及编辑运行配置文件</p>
-<p>C:\wnmp\php-5.5.7-nts-Win32-VC11-x86&gt;php-cgi.exe -b 127.0.0.1:9000-c C:\wnmp\php-5.5.7-nts-Win32-VC11-x86\php.ini</p>
-<p>重新运行nginx.exe。</p>
-<p>C:\wnmp\nginx-1.5.8\html下新建一个phpinfo.php，</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php phpinfo(); ?&gt;</div></pre></td></tr></table></figure>
-<p>访问<a href="http://localhost/phpinfo.php" target="_blank" rel="external">http://localhost/phpinfo.php</a></p>
-<p>或者<a href="http://127.0.0.1/phpinfo.php" target="_blank" rel="external">http://127.0.0.1/phpinfo.php</a></p>
-<p>出现如下的信息就说明php已经成功安装:</p>
-<p>第三部分试运行以及编辑运行配置文件</p>
-<p>C:\wnmp\php&gt;php-cgi.exe -b 127.0.0.1:9000-c C:\wnmp\php\php.ini<br>重新运行nginx.exe。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -721,7 +706,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
